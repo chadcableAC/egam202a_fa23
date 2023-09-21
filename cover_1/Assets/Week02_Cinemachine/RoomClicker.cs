@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class RoomClicker : MonoBehaviour
 {
+    // Link the Unity camera (the one with the Cinemachine Brain)
     public Camera gameCamera;
+
+    // Link the overhead camera
     public CinemachineVirtualCamera overheadCamera;
-    
+
+    // We'll fill these lists in Start() via code
     public Room[] rooms;
     public CinemachineVirtualCamera[] allCameras;
 
@@ -57,13 +59,17 @@ public class RoomClicker : MonoBehaviour
 
     public void SwitchToCamera(CinemachineVirtualCamera thisCamera)
     {
+        // We need to update the camera's priorities
         foreach (CinemachineVirtualCamera camera in allCameras)
         {
             int cameraPriority = 0;
+
+            // Same camera?  Make this one the highest
             if (camera == thisCamera)
             {
                 cameraPriority = 100;
             }
+
             camera.Priority = cameraPriority;
         }
     }

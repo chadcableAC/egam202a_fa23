@@ -5,7 +5,10 @@ using Cinemachine;
 
 public class CameraSwitcher : MonoBehaviour
 {
+    // Set the cameras in the Unity inspector
     public List<CinemachineVirtualCamera> cameraList;
+
+    // The index of the active camera in this list
     public int activeCameraIndex = 0;
 
     void Update()
