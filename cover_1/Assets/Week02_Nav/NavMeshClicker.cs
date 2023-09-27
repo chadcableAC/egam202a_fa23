@@ -6,6 +6,10 @@ public class NavMeshClicker : MonoBehaviour
     public Camera gameCamera;
     public NavMeshAgent agent;
 
+    public NavMeshAgent reticule;
+
+    private Pikmin activePikmin = null;
+
     void Update()
     {
         // Respond to clicks
@@ -18,8 +22,25 @@ public class NavMeshClicker : MonoBehaviour
             // Hit anything?
             if (Physics.Raycast(mouseRay, out RaycastHit hitInfo, 100))
             {
-                // Make the agent go to the collision point
-                agent.SetDestination(hitInfo.point);
+                Pikmin pikmin = hitInfo.transform.GetComponent<Pikmin>();
+                if (pikmin != null)
+                {
+                    pikmin.SetPikminActive(true);
+                    activePikmin = pikmin;
+                }
+                else if (activePikmin != null)
+                {
+                    activePikmin.SetPikminTarget(hitInfo.point);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (activePikmin != null)
+            {
+                activePikmin.SetPikminActive(false);
+                activePikmin = null;
             }
         }
     }
