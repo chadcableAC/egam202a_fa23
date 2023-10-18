@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ClickableObject : MonoBehaviour
 {
-    public Renderer renderer;
+    public Renderer mainRenderer;
 
     public void Clicked()
     {
-        renderer.material.color = Color.red;
+        mainRenderer.material.color = Color.red;
     }
 }

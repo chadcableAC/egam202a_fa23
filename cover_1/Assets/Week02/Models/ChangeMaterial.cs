@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeMaterial : MonoBehaviour
 {
-    public Renderer renderer;
+    public Renderer mainRenderer;
 
     public Material materialOne;
     public Material materialTwo;
@@ -17,14 +17,14 @@ public class ChangeMaterial : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Same material as materialOne?  Switch to materialTwo
-            if (renderer.sharedMaterial == materialOne)
+            if (mainRenderer.sharedMaterial == materialOne)
             {
-                renderer.sharedMaterial = materialTwo;
+                mainRenderer.sharedMaterial = materialTwo;
             }
             // Otherwise go to materialOne
             else
             {
-                renderer.sharedMaterial = materialOne;
+                mainRenderer.sharedMaterial = materialOne;
             }
         }
     }

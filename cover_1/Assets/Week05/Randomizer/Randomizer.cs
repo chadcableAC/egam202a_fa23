@@ -44,26 +44,29 @@ public class Randomizer : MonoBehaviour
         }
         Debug.Log(listOfNames);
 
-        //for (int i = datas.Count - 1; i >= 0; i--)
-        //{
-        //    if (!datas[i].isHere)
-        //    {
-        //        datas.RemoveAt(i);
-        //    }
-        //}
 
-        //string output = string.Empty;
-        //for (int i = 0; i < datas.Count; i++)
-        //{
-        //    output += "\n#" + (i + 1);
-        //    output += "\nPresenter: " + datas[i].name;
+        List<Data> datas = new List<Data>();
+        datas.AddRange(_datas);
+        for (int i = datas.Count - 1; i >= 0; i--)
+        {
+            if (!datas[i].isHere)
+            {
+                datas.RemoveAt(i);
+            }
+        }
 
-        //    int nextIndex = (i + 1) % datas.Count;
-        //    output += "\nPlaytester: " + datas[nextIndex].name;
-        //    output += "\n";
-        //}
+        string output = string.Empty;
+        for (int i = 0; i < datas.Count; i++)
+        {
+            output += "\n#" + (i + 1);
+            output += "\nPresenter: " + datas[i].name;
 
-        //Debug.Log(output);
+            int nextIndex = (i + 1) % datas.Count;
+            output += "\nPlaytester: " + datas[nextIndex].name;
+            output += "\n";
+        }
+
+        Debug.Log(output);
     }
 
     // Update is called once per frame
