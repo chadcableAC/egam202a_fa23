@@ -155,6 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 769700981428885672}
+  scaleHandle: {fileID: 6831287357273039936}
+  growDuration: 1
   tellDuration: 0.33
   tellEnableHandle: {fileID: 1029901789774331764}
 --- !u!33 &4940570745331896412

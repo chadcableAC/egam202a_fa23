@@ -17,10 +17,19 @@ public class PearTree : MonoBehaviour
         foreach (Pear pear in pearArray)
         {
             // For each pear, wait 0.25 seconds
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(1f);
 
             // Then fall
-            pear.Fall();           
+            pear.Appear();           
+        }
+    }
+
+    void Update()
+    {
+        // If space is pressed, stop them from falling
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StopAllCoroutines();
         }
     }
 }
